@@ -28,5 +28,5 @@
     "url": "https://github.com/vhf/mdast-lint-alphabetize-lists/issues"
   },
   "homepage": "https://github.com/vhf/mdast-lint-alphabetize-lists#readme",
-  "main": "dist/index.js"
+  "main": "dist/alphabetical-list-items.js"
 }
