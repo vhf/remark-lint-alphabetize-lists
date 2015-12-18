@@ -12,6 +12,7 @@ function normalize(text) {
 }
 
 function alphaCheck(ast, file, language, done) {
+  language || (language = 'en-US');
   var contents = file.toString();
 
   visit(ast, 'list', function (node) {
@@ -38,4 +39,6 @@ function alphaCheck(ast, file, language, done) {
   done();
 }
 
-module.exports = alphaCheck;
+module.exports = {
+  'alphabetize-lists': alphaCheck
+};
