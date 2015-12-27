@@ -1,15 +1,15 @@
 {
-  "name": "mdast-lint-alphabetize-lists",
-  "version": "0.1.1",
+  "name": "remark-lint-alphabetize-lists",
+  "version": "1.0.0",
   "description": "Checks that all list items are in alphabetical order",
   "author": "Victor Felder <victorfelder@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vhf/mdast-lint-alphabetize-lists.git"
+    "url": "git+https://github.com/vhf/remark-lint-alphabetize-lists.git"
   },
   "license": "MIT",
   "dependencies": {
-    "mdast": "^2.1.0",
+    "remark": "^3.0.0",
     "strip-markdown": "^0.3.1",
     "unist-util-visit": "^1.0.0"
   },
@@ -25,8 +25,8 @@
     "build": "babel lib -d dist"
   },
   "bugs": {
-    "url": "https://github.com/vhf/mdast-lint-alphabetize-lists/issues"
+    "url": "https://github.com/vhf/remark-lint-alphabetize-lists/issues"
   },
-  "homepage": "https://github.com/vhf/mdast-lint-alphabetize-lists#readme",
+  "homepage": "https://github.com/vhf/remark-lint-alphabetize-lists#readme",
   "main": "dist/alphabetical-list-items.js"
 }
