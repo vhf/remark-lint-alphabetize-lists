@@ -20,7 +20,7 @@ function alphaCheck(ast, file, language, done) {
 
     items.forEach(function (item) {
       if (item.children.length) {
-        var text = normalize(toString(item));
+        var text = normalize(toString(item.children[0].children[0]));
         var line = item.position.start.line;
         var comp = new Intl.Collator(language).compare(lastText, text);
         if (comp > 0) {
