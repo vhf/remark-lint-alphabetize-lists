@@ -1,8 +1,7 @@
 'use strict';
 
 var visit = require('unist-util-visit');
-var strip = require('strip-markdown');
-var remark = require('remark').use(strip);
+var toString = require('mdast-util-to-string');
 
 function normalize(text) {
   var removeAtBeginning = /^(\.|\-|\_|\(|《|\"|\')*/;
@@ -13,7 +12,6 @@ function normalize(text) {
 
 function alphaCheck(ast, file, language, done) {
   language || (language = 'en-US');
-  var contents = file.toString();
 
   visit(ast, 'list', function (node) {
     var items = node.children;
@@ -22,9 +20,7 @@ function alphaCheck(ast, file, language, done) {
 
     items.forEach(function (item) {
       if (item.children.length) {
-        var lineStartOffset = item.children[0].children[0].position.start.offset;
-        var lineEndOffset = item.children[0].children[item.children[0].children.length - 1].position.end.offset;
-        var text = normalize(remark.process(contents.slice(lineStartOffset, lineEndOffset)));
+        var text = normalize(toString(item));
         var line = item.position.start.line;
         var comp = new Intl.Collator(language).compare(lastText, text);
         if (comp > 0) {
