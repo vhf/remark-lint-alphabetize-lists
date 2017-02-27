@@ -5,14 +5,14 @@ var visit = require('unist-util-visit');
 var toString = require('mdast-util-to-string');
 
 function normalize(text) {
-  var removeAtBeginning = /^(\.|\-|\_|\(|《|\"|\')*/;
-  var removeInside = /(,|:)/;
-  var replaceWithSpace = /(-)/;
+  var removeAtBeginning = /^([-._(《"'])*/;
+  var removeInside = /[,:]/;
+  var replaceWithSpace = /-/;
   return text.toLowerCase().trim().replace(removeAtBeginning, '').replace(removeInside, '').replace(replaceWithSpace, ' ');
 }
 
-function alphaCheck(tree, file, language) {
-  language || (language = 'en-US');
+function alphaCheck(tree, file) {
+  var language = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'en-US';
 
   visit(tree, 'list', function (node) {
     var items = node.children;
@@ -25,7 +25,7 @@ function alphaCheck(tree, file, language) {
         var line = item.position.start.line;
         var comp = new Intl.Collator(language).compare(lastText, text);
         if (comp > 0) {
-          file.warn('Alphabetical ordering: swap l.' + item.children[0].children[0].position.start.line + ' and l.' + lastLine + '', node);
+          file.warn('Alphabetical ordering: swap l.' + item.children[0].children[0].position.start.line + ' and l.' + lastLine, node);
         }
         lastLine = line;
         lastText = text;
