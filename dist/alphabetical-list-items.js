@@ -1,5 +1,6 @@
 'use strict';
 
+var rule = require('unified-lint-rule');
 var visit = require('unist-util-visit');
 var toString = require('mdast-util-to-string');
 
@@ -10,10 +11,10 @@ function normalize(text) {
   return text.toLowerCase().trim().replace(removeAtBeginning, '').replace(removeInside, '').replace(replaceWithSpace, ' ');
 }
 
-function alphaCheck(ast, file, language, done) {
+function alphaCheck(tree, file, language) {
   language || (language = 'en-US');
 
-  visit(ast, 'list', function (node) {
+  visit(tree, 'list', function (node) {
     var items = node.children;
     var lastLine = -1;
     var lastText = '';
@@ -31,10 +32,6 @@ function alphaCheck(ast, file, language, done) {
       }
     });
   });
-
-  done();
 }
 
-module.exports = {
-  'alphabetize-lists': alphaCheck
-};
+module.exports = rule('remark-lint:alphabetize-lists', alphaCheck);
