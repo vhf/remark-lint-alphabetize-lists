@@ -21,11 +21,17 @@
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "remark-lint": "^6.0.0"
+    "remark": "^7.0.0",
+    "remark-lint": "^6.0.0",
+    "tape": "^4.6.3"
   },
   "scripts": {
+    "build-md": "remark . -qfo",
+    "build-lib": "babel lib -d dist",
+    "build": "npm run build-md && npm run build-lib",
     "lint": "eslint .",
-    "build": "babel lib -d dist"
+    "test-api": "node test",
+    "test": "npm run build && npm run lint && npm run test-api"
   },
   "bugs": {
     "url": "https://github.com/vhf/remark-lint-alphabetize-lists/issues"
