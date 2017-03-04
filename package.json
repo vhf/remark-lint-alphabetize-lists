@@ -21,6 +21,8 @@
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
     "remark": "^7.0.0",
     "remark-lint": "^6.0.0",
     "tape": "^4.6.3"
