@@ -25,7 +25,7 @@ function alphaCheck(tree, file) {
         var line = item.position.start.line;
         var comp = new Intl.Collator(language).compare(lastText, text);
         if (comp > 0) {
-          file.warn('Alphabetical ordering: swap l.' + item.children[0].children[0].position.start.line + ' and l.' + lastLine, node);
+          file.message('Alphabetical ordering: swap l.' + item.children[0].children[0].position.start.line + ' and l.' + lastLine, node);
         }
         lastLine = line;
         lastText = text;
