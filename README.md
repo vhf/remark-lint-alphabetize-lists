@@ -1,4 +1,4 @@
-# remark-lint-alphabetize-lists
+# remark-lint-alphabetize-lists [![Build Status](https://travis-ci.com/vhf/remark-lint-alphabetize-lists.svg?branch=master)](https://travis-ci.com/vhf/remark-lint-alphabetize-lists)
 
 This [remark-lint](https://github.com/wooorm/remark-lint) rule was created for [free-programming-books-lint](https://github.com/vhf/free-programming-books-lint) to enforce [free-programming-books](https://github.com/vhf/free-programming-books) [formatting guidelines](https://github.com/vhf/free-programming-books/blob/master/CONTRIBUTING.md#formatting).
 
