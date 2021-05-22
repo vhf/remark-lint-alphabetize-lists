@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-alphabetize-lists",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Checks that all list items are in alphabetical order",
   "author": "Victor Felder <victor@draft.li>",
   "repository": {
@@ -40,5 +40,6 @@
     "url": "https://github.com/vhf/remark-lint-alphabetize-lists/issues"
   },
   "homepage": "https://github.com/vhf/remark-lint-alphabetize-lists#readme",
-  "main": "dist/alphabetical-list-items.js"
+  "main": "dist/alphabetical-list-items.js",
+  "files": ["dist/**"]
 }
